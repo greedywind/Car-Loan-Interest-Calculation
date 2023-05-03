@@ -24,10 +24,10 @@ def generate_amortization_table(price, interest_rate, loan_years, down_payment):
 
     _, monthly_payment = calculate_total_interest(price, interest_rate, loan_years, down_payment)
 
-    amortization_table = []
+    amortization_table = [[1,0,0,loan_amount]]
     remaining_balance = loan_amount
 
-    for i in range(loan_months):
+    for i in range(1, loan_months):
         interest_payment = remaining_balance * monthly_interest_rate
         principal_payment = monthly_payment - interest_payment
         remaining_balance -= principal_payment
