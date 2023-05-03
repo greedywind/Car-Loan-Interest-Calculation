@@ -1,6 +1,6 @@
 import streamlit as st
-import plotly.graph_objs as go
-import plotly.figure_factory as ff
+import plotly.graph_objects as go
+import plotly.subplots as sp
 import numpy as np
 
 def calculate_total_interest(price, interest_rate, loan_years, down_payment):
@@ -49,8 +49,20 @@ def main():
         st.write(f"The total amount of interest paid over the life of the loan is: ${total_interest_paid:.2f}")
 
         amortization_table = generate_amortization_table(price, interest_rate, loan_years, down_payment)
-        figure = ff.create_table(amortization_table, header_values=["Month", "Interest Payment", "Principal Payment", "Remaining Balance"])
+
+        # Move table creation code here
+        header = dict(values=["Month", "Interest Payment", "Principal Payment", "Remaining Balance"],
+                      fill_color='paleturquoise',
+                      align='left')
+        cells = dict(values=[amortization_table[:, i] for i in range(4)],
+                     fill_color='lavender',
+                     align='left')
+        table = go.Table(header=header, cells=cells)
+
+        figure = go.Figure(data=[table])
         st.plotly_chart(figure)
+
+
 
 
         # Create a line chart for Interest and Principal payments
