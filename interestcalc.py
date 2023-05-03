@@ -1,4 +1,3 @@
-
 import streamlit as st
 import plotly.graph_objs as go
 import plotly.figure_factory as ff
@@ -53,19 +52,23 @@ def main():
         figure = ff.create_table(amortization_table, header_values=["Month", "Interest Payment", "Principal Payment", "Remaining Balance"])
         st.plotly_chart(figure)
 
+
         # Create a line chart for Interest and Principal payments
         line_chart = go.Figure()
         line_chart.add_trace(go.Scatter(x=amortization_table[:, 0], y=amortization_table[:, 1], mode="lines", name="Interest Payment"))
         line_chart.add_trace(go.Scatter(x=amortization_table[:, 0], y=amortization_table[:, 2], mode="lines", name="Principal Payment"))
         line_chart.update_layout(title="Interest and Principal Payments Over Time", xaxis_title="Month", yaxis_title="Amount ($)")
         st.plotly_chart(line_chart)
-
+        
         # Create a pie chart comparing total amount paid with and without interest
-        pie_chart = go.Figure(data=[go.Pie(labels=["Total Amount Paid (with Interest)", "Car Price"],
-                                           values=[total_amount_paid, price],
-                                           hole=.4)])
-        pie_chart.update_layout(title="Comparison of Total Amount Paid with and without Interest")
-        st.plotly_chart(pie_chart)
+    loan_amount = price - down_payment
+    total_amount_paid = loan_amount + total_interest_paid
+    pie_chart = go.Figure(data=[go.Pie(labels=["Total Amount Paid (with Interest)", "Car Price"],
+                                       values=[total_amount_paid, price],
+                                       hole=0.4)])
+    pie_chart.update_layout(title="Comparison of Total Amount Paid with and without Interest")
+    st.plotly_chart(pie_chart)
+
 
 if __name__ == "__main__":
     main()
