@@ -45,9 +45,8 @@ def main():
     down_payment = st.number_input("Enter the down payment amount (if any):", min_value=0.0, step=1000.0)
 
     if st.button("Calculate"):
-    total_interest_paid = 0.0
-    total_interest_paid, _ = calculate_total_interest(price, interest_rate, loan_years, down_payment)
-    st.write(f"The total amount of interest paid over the life of the loan is: ${total_interest_paid:.2f}")
+        total_interest_paid, _ = calculate_total_interest(price, interest_rate, loan_years, down_payment)
+        st.write(f"The total amount of interest paid over the life of the loan is: ${total_interest_paid:.2f}")
 
         amortization_table = generate_amortization_table(price, interest_rate, loan_years, down_payment)
         figure = ff.create_table(amortization_table, header_values=["Month", "Interest Payment", "Principal Payment", "Remaining Balance"])
@@ -62,13 +61,14 @@ def main():
         st.plotly_chart(line_chart)
         
         # Create a pie chart comparing total amount paid with and without interest
-    loan_amount = price - down_payment
-    total_amount_paid = loan_amount + total_interest_paid
-    pie_chart = go.Figure(data=[go.Pie(labels=["Total Amount Paid (with Interest)", "Car Price"],
-                                       values=[total_amount_paid, price],
-                                       hole=0.4)])
-    pie_chart.update_layout(title="Comparison of Total Amount Paid with and without Interest")
-    st.plotly_chart(pie_chart)
+        loan_amount = price - down_payment
+        total_amount_paid = loan_amount + total_interest_paid
+        pie_chart = go.Figure(data=[go.Pie(labels=["Total Amount Paid (with Interest)", "Car Price"],
+                                           values=[total_amount_paid, price],
+                                           hole=0.4)])
+        pie_chart.update_layout(title="Comparison of Total Amount Paid with and without Interest")
+        st.plotly_chart(pie_chart)
+
 
 
 if __name__ == "__main__":
