@@ -38,6 +38,19 @@ def generate_amortization_table(price, interest_rate, loan_years, down_payment):
 
 def main():
     st.title("Car Loan Interest Calculator")
+    
+    st.markdown("## Upcoming Features")
+    st.markdown("""
+    - Prepayment calculator
+    - Comparison tool for different loan offers
+    - Refinance calculator
+    - Principal remaining over time chart
+    - Annual percentage rate (APR) comparison chart
+    - Cumulative interest over time chart
+    - Loan term comparison chart
+    - Additional inputs such as credit score, down payment, trade-in value, loan fees, sales tax, insurance, and maintenance costs
+    """)
+    
 
     price = st.number_input("Enter the car's price:", min_value=0.0, step=1000.0)
     interest_rate = st.number_input("Enter the annual interest rate (as a percentage):", min_value=0.0, max_value=100.0, step=0.1)
