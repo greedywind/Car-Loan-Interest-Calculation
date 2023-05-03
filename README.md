@@ -2,7 +2,8 @@ A  python script that takes the cars price, the interest rate, the loan years an
 
 ***Upcoming Features***
 
-Prepayment calculator
+    - Prepayment calculator
+
     - Comparison tool for different loan offers
     
     - Refinance calculator
