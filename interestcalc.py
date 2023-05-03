@@ -52,24 +52,20 @@ def main():
 
         # Move table creation code here
         header = dict(values=["Month", "Interest Payment", "Principal Payment", "Remaining Balance"],
-                      fill_color='darkblue', # Change fill_color here
+                      fill_color='lightgrey',
                       align='left',
-                      font=dict(color='white'), # Add font color here
-                      height=40) # Increase height here
+                      font=dict(color='black'),
+                      height=40)
         cells = dict(values=[amortization_table[:, i] for i in range(4)],
-                     fill_color='lightblue', # Change fill_color here
+                     fill_color='lightgrey',
                      align='left',
-                     height=40) # Increase height here
+                     font=dict(color='black'),
+                     height=40)
         table = go.Table(header=header, cells=cells)
 
         # Update the figure to include custom height
         figure = go.Figure(data=[table], layout=go.Layout(height=len(amortization_table)*40 + 100))
         st.plotly_chart(figure)
-
-
-
-
-
 
 
         # Create a line chart for Interest and Principal payments
