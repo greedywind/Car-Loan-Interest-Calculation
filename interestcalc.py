@@ -64,7 +64,7 @@ def generate_amortization_table(price, interest_rate, loan_years, down_payment):
 def main():
     st.title("Car Loan Interest Calculator")
 
-    st.markdown("## This calculator displays the amount of interest on a loan you'd pay including graphical visualizations, and the ability to set a prepayment amount to calculate the savings in interest and reduction in loan tenure to help understand the benefits of prepayment.")
+    st.markdown("This calculator displays the amount of interest on a loan you'd pay including graphical visualizations, and the ability to set a prepayment amount to calculate the savings in interest and reduction in loan tenure to help understand the benefits of prepayment.")
     st.markdown("## Upcoming Features")
     st.markdown("""
     
