@@ -68,6 +68,7 @@ def main():
     st.markdown("## Upcoming Features")
     st.markdown("""
     
+    - Prepatment amount to calculate savings in interest and reduction in loan tenure ✔️
     - Comparison tool for different loan offers
     - Refinance calculator
     - Principal remaining over time chart
