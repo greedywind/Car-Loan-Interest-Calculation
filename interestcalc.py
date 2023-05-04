@@ -68,7 +68,6 @@ def main():
     st.markdown("## Upcoming Features")
     st.markdown("""
     
-    - Prepayment calculator
     - Comparison tool for different loan offers
     - Refinance calculator
     - Principal remaining over time chart
